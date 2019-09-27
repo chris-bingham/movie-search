@@ -1,0 +1,64 @@
+{
+  "name": "react-workshop",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && parcel build index.html",
+    "build-project": "parcel build final-project/index.html",
+    "delete": "git reset --hard && git clean -dfe coverage dist && npm install",
+    "precommit": "lint-staged",
+    "start": "parcel index.html",
+    "test": "jest --watchAll"
+  },
+  "lint-staged": {
+    "*.{css,md,scss,json}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "git add",
+      "jest --ci --findRelatedTests"
+    ]
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "dist",
+      "coverage"
+    ],
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$"
+  },
+  "dependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@aerian/eslint-config-react": "^2.0.1",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "husky": "^0.14.3",
+    "jest": "^24.8.0",
+    "lint-staged": "^7.2.0",
+    "node-sass": "^4.9.2",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.18.2",
+    "prettier-plugin-packagejson": "^2.0.1"
+  }
+}
