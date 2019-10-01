@@ -1,6 +1,6 @@
 # movie-search
 
-A way to search for movies
+An interface to search for movies
 
 ## Get started
 
